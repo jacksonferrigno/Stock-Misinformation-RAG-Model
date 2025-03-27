@@ -1,0 +1,7 @@
+yfinance
+feedparser
+python-dotenv
+pinecone
+requests
+openai
+fastapi
