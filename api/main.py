@@ -8,7 +8,7 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "stock-misinform-frontend.vercel.app",
+        "https://stock-misinform-frontend.vercel.app",
         "http://localhost:3000"  # Keep for local development
     ],
     allow_credentials=True,
