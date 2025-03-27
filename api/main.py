@@ -7,9 +7,13 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+        "stock-misinform-frontend.vercel.app",
+        "http://localhost:3000"  # Keep for local development
+    ],
+    allow_credentials=True,
     allow_methods=["*"],
-    allow_headers=["*"]
+    allow_headers=["*"],
 )
 
 class QueryRequest(BaseModel):
