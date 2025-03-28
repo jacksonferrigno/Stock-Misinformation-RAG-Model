@@ -26,6 +26,7 @@ async def generate(query_req: QueryRequest):
         result = generate_response(query_req.query, query_req.ticker.upper())
         return {"response": result}
     except Exception as e:
+        print(f"[ERROR] LLM generation failed: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 @app.get("/")
 async def root():
