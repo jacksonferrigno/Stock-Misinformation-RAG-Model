@@ -77,10 +77,10 @@ def generate_response(user_query, ticker):
     
     try: 
         response = openai.chat.completions.create(
-            model="gpt-3.5-turbo",
+            model="gpt-4o-mini",
             messages=messages,
             temperature=0.9,
-            max_tokens=500
+            max_tokens=1000
         )
         return response.choices[0].message.content.strip()
     except Exception as e:
