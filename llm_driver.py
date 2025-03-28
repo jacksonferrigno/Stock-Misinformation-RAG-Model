@@ -2,6 +2,7 @@ import os
 import openai
 from dotenv import load_dotenv
 from vector_store.pinecone_manager import query_stock_data
+from data_retrieval.stock_data import get_stock_summary
 
 load_dotenv()
 
@@ -64,7 +65,8 @@ def generate_response(user_query, ticker):
     #step 2 format the system prompt
     stock_summary =context_chunks[0]
     headlines ="\n".join(context_chunks[1:]) if len(context_chunks)>1 else "No headlines found"
-    
+    closing_prices= get_stock_summary(ticker)
+    lastest_price= closing_prices["closing_prices"][-1][1]
     full_prompt = SYSTEM_PROMPT.format(
         stock_summary=stock_summary,
         headlines=headlines
