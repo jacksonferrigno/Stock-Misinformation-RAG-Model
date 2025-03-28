@@ -69,7 +69,8 @@ def generate_response(user_query, ticker):
     lastest_price= closing_prices["closing_prices"][-1][1]
     full_prompt = SYSTEM_PROMPT.format(
         stock_summary=stock_summary,
-        headlines=headlines
+        headlines=headlines,
+        latest_close_price=lastest_price
     )
     # Step 3 openai chat messages 
     messages = [
