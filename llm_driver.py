@@ -2,7 +2,7 @@ import os
 import openai
 from dotenv import load_dotenv
 from vector_store.pinecone_manager import query_stock_data
-from vector_store.data_retrieval.stock_data import get_stock_summary
+
 
 # Load environment variables from .env file
 
