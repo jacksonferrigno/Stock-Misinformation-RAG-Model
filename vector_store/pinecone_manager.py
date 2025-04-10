@@ -2,7 +2,9 @@ import os
 from dotenv import load_dotenv
 from pinecone import Pinecone
 
+
 from data_retrieval.stock_data import get_stock_headlines, get_stock_summary
+
 
 load_dotenv()
 

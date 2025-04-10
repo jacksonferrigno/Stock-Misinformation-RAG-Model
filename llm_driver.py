@@ -2,9 +2,9 @@ import os
 import openai
 from dotenv import load_dotenv
 from vector_store.pinecone_manager import query_stock_data
-from data_retrieval.stock_data import get_stock_summary
+from vector_store.data_retrieval.stock_data import get_stock_summary
 
-load_dotenv()
+# Load environment variables from .env file
 
 load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
