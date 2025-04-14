@@ -2,8 +2,10 @@ import os
 from dotenv import load_dotenv
 from pinecone import Pinecone
 
+from data_retrieval.stock_data import get_stock_headlines, get_stock_summary
 
-#from data_retrieval.stock_data import get_stock_headlines, get_stock_summary
+
+
 
 
 load_dotenv()
@@ -39,7 +41,7 @@ def query_stock_data(query_text, top_k=5, namespace=None):
     results = index.search(namespace=namespace or "", query=query_payload)
     return [hit['fields']['text'] for hit in results['result']['hits']]
 
-"""
+
 if __name__ == "__main__":
     sp100_tickers = [
         "AAPL", "ABBV", "ABT", "ACN", "ADBE", "AIG", "AMD", "AMGN", "AMT", "AMZN",
@@ -71,4 +73,3 @@ if __name__ == "__main__":
         upsert_stock_data(ticker, combined, namespace=ticker)
 
         print(f"Inserted {len(combined)} records for {ticker}.")
-"""
